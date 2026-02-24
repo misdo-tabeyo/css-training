@@ -402,36 +402,41 @@
       text-decoration-color: currentColor;
     }
 
-    .spacingDemo{
+    .settingsCard{
       width:min(720px,100%);
       background:#fff;
       border:1px solid #e5e7eb;
       border-radius:14px;
-      padding:18px;
-      display:grid;
-      gap:10px;
+      overflow:hidden;
     }
-    .spacingRow{
-      border:1px dashed rgba(2,6,23,.20);
-      border-radius:12px;
-      padding:12px;
+    .settingsCard__header{
+      padding:16px 20px;
+      border-bottom:1px solid #e5e7eb;
+      font-weight:800;
+      font-size:16px;
+      color:#0f172a;
+    }
+    .settingsCard__body{
+      padding:0;
+    }
+    .settingsCard__row{
+      padding:14px 20px;
+      border-bottom:1px solid #e5e7eb;
       display:flex;
       align-items:center;
       justify-content:space-between;
       color:#0f172a;
     }
-    .spacingRow .tag{
-      font-size:12px;
-      font-weight:800;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(2,6,23,.15);
-      background:#f8fafc;
+    .settingsCard__row:last-child{
+      border-bottom:none;
     }
-    .spacingRow .value{
-      font-size:12px;
-      color:#475569;
-      font-weight:700;
+    .settingsCard__label{
+      font-size:14px;
+      font-weight:600;
+    }
+    .settingsCard__value{
+      font-size:13px;
+      color:#64748b;
     }
 
     /* --- Layout targets --- */
@@ -1131,28 +1136,31 @@
           <div class="question__bar">
             <div class="qid">B2</div>
             <span class="difficulty difficulty--beginner">初級</span>
-            <div class="chip">余白のリズム</div>
+            <div class="chip">設定画面（行区切り＋余白）</div>
           </div>
           <div class="stage stage--light">
-            <div class="spacingDemo">
-              <div class="spacingRow">
-                <span class="tag">セクション</span>
-                <span class="value">外側の間隔が一定</span>
-              </div>
-              <div class="spacingRow">
-                <span class="tag">行</span>
-                <span class="value">内側の余白が揃う</span>
-              </div>
-              <div class="spacingRow">
-                <span class="tag">行</span>
-                <span class="value">区切りが均等</span>
+            <div class="settingsCard">
+              <div class="settingsCard__header">アカウント設定</div>
+              <div class="settingsCard__body">
+                <div class="settingsCard__row">
+                  <span class="settingsCard__label">ユーザー名</span>
+                  <span class="settingsCard__value">taro_yamada</span>
+                </div>
+                <div class="settingsCard__row">
+                  <span class="settingsCard__label">メールアドレス</span>
+                  <span class="settingsCard__value">taro@example.com</span>
+                </div>
+                <div class="settingsCard__row">
+                  <span class="settingsCard__label">言語</span>
+                  <span class="settingsCard__value">日本語</span>
+                </div>
               </div>
             </div>
           </div>
           <button class="hint-toggle" onclick="toggleHint(this)">ヒントを見る ▼</button>
           <div class="hint-content">
-            使うプロパティ: <code>display: grid</code> <code>gap</code> <code>padding</code> <code>border</code> <code>border-radius</code><br>
-            ポイント: <code>gap</code> を使うと要素間の余白を均等に揃えられます。<code>display: flex</code> + <code>justify-content: space-between</code> で左右に配置します
+            使うプロパティ: <code>padding</code> <code>border-bottom</code> <code>display: flex</code> <code>justify-content: space-between</code> <code>align-items</code><br>
+            ポイント: 各行を <code>border-bottom</code> で区切り、最後の行だけ <code>:last-child</code> で区切り線を消します
           </div>
           <div class="question__actions">
             <button class="action-btn copy-html-btn" onclick="copyHtml('B2')">HTMLをコピー</button>
@@ -1806,53 +1814,60 @@
 }`
       },
       B2: {
-        html: `<div class="spacingDemo">
-  <div class="spacingRow">
-    <span class="tag">セクション</span>
-    <span class="value">外側の間隔が一定</span>
-  </div>
-  <div class="spacingRow">
-    <span class="tag">行</span>
-    <span class="value">内側の余白が揃う</span>
-  </div>
-  <div class="spacingRow">
-    <span class="tag">行</span>
-    <span class="value">区切りが均等</span>
+        html: `<div class="settingsCard">
+  <div class="settingsCard__header">アカウント設定</div>
+  <div class="settingsCard__body">
+    <div class="settingsCard__row">
+      <span class="settingsCard__label">ユーザー名</span>
+      <span class="settingsCard__value">taro_yamada</span>
+    </div>
+    <div class="settingsCard__row">
+      <span class="settingsCard__label">メールアドレス</span>
+      <span class="settingsCard__value">taro@example.com</span>
+    </div>
+    <div class="settingsCard__row">
+      <span class="settingsCard__label">言語</span>
+      <span class="settingsCard__value">日本語</span>
+    </div>
   </div>
 </div>`,
-        css: `.spacingDemo {
+        css: `.settingsCard {
   width: min(720px, 100%);
   background: #fff;
   border: 1px solid #e5e7eb;
   border-radius: 14px;
-  padding: 18px;
-  display: grid;
-  gap: 10px;
+  overflow: hidden;
 }
 
-.spacingRow {
-  border: 1px dashed rgba(2, 6, 23, 0.20);
-  border-radius: 12px;
-  padding: 12px;
+.settingsCard__header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  font-weight: 800;
+  font-size: 16px;
+  color: #0f172a;
+}
+
+.settingsCard__row {
+  padding: 14px 20px;
+  border-bottom: 1px solid #e5e7eb;
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: #0f172a;
 }
 
-.spacingRow .tag {
-  font-size: 12px;
-  font-weight: 800;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(2, 6, 23, 0.15);
-  background: #f8fafc;
+.settingsCard__row:last-child {
+  border-bottom: none;
 }
 
-.spacingRow .value {
-  font-size: 12px;
-  color: #475569;
-  font-weight: 700;
+.settingsCard__label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.settingsCard__value {
+  font-size: 13px;
+  color: #64748b;
 }`
       },
       L1: {

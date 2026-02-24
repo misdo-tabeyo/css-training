@@ -113,6 +113,14 @@
     if (answerHtml) answerHtml.value = question.answerHtml;
     if (answerCss) answerCss.value = question.answerCss;
 
+    const prevStyle = document.getElementById('questionAnswerStyle');
+    if (prevStyle) prevStyle.remove();
+
+    const style = document.createElement('style');
+    style.id = 'questionAnswerStyle';
+    style.textContent = question.answerCss || '';
+    document.head.appendChild(style);
+
     bindColorGuideCopy(app);
   }
 

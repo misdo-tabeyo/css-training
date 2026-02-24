@@ -12,15 +12,17 @@
 
 ## 問題カテゴリ
 
-| カテゴリ | 問題数 | 内容 |
-|---------|--------|------|
-| テキスト装飾 | 3問 | 見出し・段落、リンク、リスト |
-| UIパーツ | 3問 | ボタン、バッジ、入力フィールド |
-| 余白 / ボックス | 3問 | カード、設定行、プロフィール |
-| レイアウト | 3問 | Flexbox、Grid、2カラム |
-| 位置 | 3問 | sticky、absolute、overlay |
-| レスポンシブ | 2問 | メディアクエリ |
-| トランジション | 2問 | hover時の変化 |
+| 順番 | カテゴリ | 問題数 | 新しく学ぶこと |
+|:----:|---------|:------:|----------------|
+| 1 | テキスト装飾 | 3問 | font-size, font-weight, color, line-height, margin, text-decoration, :hover, list-style-type |
+| 2 | 余白 / ボックス | 3問 | padding, border, border-radius, background, box-shadow, max-width, width, height |
+| 3 | UIパーツ | 3問 | cursor, outline, :focus, :last-child, display: block, list-style: none |
+| 4 | レイアウト | 3問 | display: flex, align-items, gap, flex: 1, display: grid, grid-template-columns |
+| 5 | 位置 | 3問 | position (relative/absolute/sticky), top, right, inset, overflow-y |
+| 6 | レスポンシブ | 2問 | @media, flex-direction: column |
+| 7 | トランジション | 2問 | transition, transform: translateY |
+
+※ 各章では前章までに学んだプロパティを使います。順番通りに進めてください。
 
 ## ファイル構成
 

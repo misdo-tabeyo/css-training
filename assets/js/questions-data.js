@@ -6,156 +6,121 @@ window.CSS_QUESTIONS = [
     title: '見出し＋段落',
     difficulty: '初級',
     stageClass: 'stage stage--light',
-    hint: '使うプロパティ: font-size / font-weight / margin / line-height / color / border / border-radius / padding',
-    stageHtml: `<div class="typoCard">
-  <h1>タイポグラフィ練習</h1>
-  <p class="lead">見出しの強弱・本文の読みやすさ・余白のリズムを揃えます。</p>
-  <p class="body">この見た目と同じになるように、CSSだけで再現してください。</p>
+    hint: '目標: 見出し・導入文・本文の強弱を作る。使うプロパティ: font-size / font-weight / line-height / color',
+    stageHtml: `<div class="text-sample">
+  <h1 class="text-sample-title">タイポグラフィ練習</h1>
+  <p class="text-sample-lead">同じ文章でも、文字サイズ・太さ・行間を変えるだけで印象は大きく変わります。まずは導入文として、少し目立つ読みやすい文章を作ってみましょう。</p>
+  <p class="text-sample-body">この問題では、本文をあえて長文にしています。行間が狭すぎると文字が詰まって読みにくくなり、逆に広すぎると視線が行ごとに飛びやすくなります。適切なline-heightを設定して、自然に読み進められる見た目を作ってください。文字色の違いも使い、見出し・導入文・本文の役割がひと目で伝わる状態を目指します。</p>
 </div>`,
-    answerHtml: `<div class="typoCard">
-  <h1>タイポグラフィ練習</h1>
-  <p class="lead">見出しの強弱・本文の読みやすさ・余白のリズムを揃えます。</p>
-  <p class="body">この見た目と同じになるように、CSSだけで再現してください。</p>
+    answerHtml: `<div class="text-sample">
+  <h1 class="text-sample-title">タイポグラフィ練習</h1>
+  <p class="text-sample-lead">同じ文章でも、文字サイズ・太さ・行間を変えるだけで印象は大きく変わります。まずは導入文として、少し目立つ読みやすい文章を作ってみましょう。</p>
+  <p class="text-sample-body">この問題では、本文をあえて長文にしています。行間が狭すぎると文字が詰まって読みにくくなり、逆に広すぎると視線が行ごとに飛びやすくなります。適切なline-heightを設定して、自然に読み進められる見た目を作ってください。文字色の違いも使い、見出し・導入文・本文の役割がひと目で伝わる状態を目指します。</p>
 </div>`,
-    answerCss: `.typoCard {
-  width: min(720px, 100%);
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 20px;
-  background: #fff;
+    answerCss: `.text-sample-title {
+  font-size: 44px;
+  font-weight: 900;
+  color: #1d4ed8;
 }
 
-.typoCard h1 {
-  font-size: 32px;
-  font-weight: 800;
-  margin: 0 0 12px 0;
-}
-
-.typoCard .lead {
-  color: #475569;
+.text-sample-lead {
+  color: #d97706;
+  font-size: 24px;
   line-height: 1.7;
-  margin: 0 0 12px 0;
 }
 
-.typoCard .body {
-  line-height: 1.8;
-  margin: 0;
-  color: #0f172a;
+.text-sample-body {
+  font-size: 18px;
+  line-height: 2.8;
+  color: #059669;
 }`
   },
   {
     qid: 'T2',
     path: 'questions/t2.html',
     category: 'テキスト装飾',
-    title: 'リンク（通常/現在地/ホバー）',
+    title: 'リンク文字（通常/現在地/ホバー）',
     difficulty: '初級',
     stageClass: 'stage stage--light',
-    hint: '使うプロパティ: display:flex / justify-content / text-decoration / color / font-weight / :hover',
-    stageHtml: `<div class="navBar">
-  <div class="brand">マイサイト</div>
-  <div class="nav">
-    <a class="current" href="#">ホーム</a>
-    <a class="hintHover" href="#">ブログ</a>
-    <a href="#">お問い合わせ</a>
-  </div>
+    hint: '目標: リンクの通常・現在地・ホバーを作り分ける。使うプロパティ: color / font-weight / text-decoration / text-underline-offset / :hover（「ブログ」にマウスを乗せた時だけ下線）',
+    stageHtml: `<div class="text-nav">
+  <a class="text-nav-link text-nav-current" href="#">ホーム</a>
+  <a class="text-nav-link" href="#">ブログ</a>
+  <a class="text-nav-link" href="#">お問い合わせ</a>
 </div>`,
-    answerHtml: `<div class="navBar">
-  <div class="brand">マイサイト</div>
-  <div class="nav">
-    <a class="current" href="#">ホーム</a>
-    <a href="#">ブログ</a>
-    <a href="#">お問い合わせ</a>
-  </div>
+    answerHtml: `<div class="text-nav">
+  <a class="text-nav-link text-nav-current" href="#">ホーム</a>
+  <a class="text-nav-link" href="#">ブログ</a>
+  <a class="text-nav-link" href="#">お問い合わせ</a>
 </div>`,
-    answerCss: `.navBar {
-  width: min(900px, 100%);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 20px;
-  border-bottom: 1px solid #e5e7eb;
-  background: #fff;
-  color: #0f172a;
+    answerCss: `.text-nav {
+  font-size: 22px;
+  line-height: 1.8;
 }
 
-.navBar .brand { font-weight: 800; }
-
-.navBar .nav {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-}
-
-.navBar a {
+.text-nav-link {
   text-decoration: none;
-  color: #475569;
-  padding: 6px 8px;
-  font-weight: 500;
-}
-
-.navBar a.current {
-  color: #0f172a;
+  color: #2563eb;
   font-weight: 700;
+  margin-right: 20px;
 }
 
-.navBar a:hover {
-  color: #0f172a;
+.text-nav-current {
+  color: #e11d48;
   text-decoration: underline;
-  text-underline-offset: 6px;
+  text-underline-offset: 8px;
+  text-decoration-thickness: 3px;
+}
+
+.text-nav-link:hover {
+  color: #16a34a;
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  text-decoration-thickness: 3px;
 }`
   },
   {
     qid: 'T3',
     path: 'questions/t3.html',
     category: 'テキスト装飾',
-    title: 'リスト行（区切り＋ホバー）',
+    title: '箇条書きテキスト（行間・強調）',
     difficulty: '初級',
     stageClass: 'stage stage--light',
-    hint: '使うプロパティ: list-style / padding / border-bottom / border-radius / background / :hover',
-    stageHtml: `<div class="listCard">
-  <h2>メモ</h2>
-  <ul>
-    <li>リストの体裁を整える</li>
-    <li class="active">ホバー中の行</li>
-    <li>区切り線のリズム</li>
+    hint: '目標: 箇条書きの読みやすさを整える（記号・行間・強調）。使うプロパティ: list-style（記号をカスタム） / margin / padding-left / line-height / color / font-weight',
+    stageHtml: `<div class="text-list">
+  <h2 class="text-list-title">メモ</h2>
+  <ul class="text-list-items">
+    <li class="text-list-item">リストの体裁を整える</li>
+    <li class="text-list-item text-list-item-active">強調したい行</li>
+    <li class="text-list-item">行間をそろえて読みやすくする</li>
   </ul>
 </div>`,
-    answerHtml: `<div class="listCard">
-  <h2>メモ</h2>
-  <ul>
-    <li>リストの体裁を整える</li>
-    <li>ホバー中の行</li>
-    <li>区切り線のリズム</li>
+    answerHtml: `<div class="text-list">
+  <h2 class="text-list-title">メモ</h2>
+  <ul class="text-list-items">
+    <li class="text-list-item">リストの体裁を整える</li>
+    <li class="text-list-item text-list-item-active">強調したい行</li>
+    <li class="text-list-item">行間をそろえて読みやすくする</li>
   </ul>
 </div>`,
-    answerCss: `.listCard {
-  width: min(600px, 100%);
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
-  padding: 18px 18px 8px;
-  background: #fff;
+    answerCss: `.text-list-title {
+  font-size: 30px;
+  color: #7c3aed;
 }
 
-.listCard h2 {
-  margin: 0 0 12px 0;
-  font-size: 20px;
+.text-list-items {
+  list-style: square;
 }
 
-.listCard ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.text-list-item {
+  font-size: 22px;
+  line-height: 2.3;
+  color: #2563eb;
 }
 
-.listCard li {
-  padding: 12px 10px;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.listCard li:hover {
-  background: #f1f5f9;
-  border-radius: 10px;
-  border-bottom-color: transparent;
+.text-list-item-active {
+  color: #dc2626;
+  font-weight: 900;
 }`
   },
   {
@@ -165,39 +130,32 @@ window.CSS_QUESTIONS = [
     title: 'ボタン3種',
     difficulty: '初級',
     stageClass: 'stage stage--light',
-    hint: '使うプロパティ: background / color / border / border-radius / padding / font-weight',
-    stageHtml: `<div class="btnRow">
+    hint: '目標: 3種類のボタンの見た目を作る（レイアウト指定は不要）。使うプロパティ: background / color / border / border-radius / padding / font-weight / margin',
+    stageHtml: `<div class="btn-row">
   <div class="btn primary">メイン</div>
   <div class="btn ghost">ゴースト</div>
   <div class="btn danger">危険</div>
 </div>`,
-    answerHtml: `<div class="btnRow">
+    answerHtml: `<div class="btn-row">
   <div class="btn primary">メイン</div>
   <div class="btn ghost">ゴースト</div>
   <div class="btn danger">危険</div>
 </div>`,
-    answerCss: `.btnRow {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.btn {
-  font-size: 14px;
-  font-weight: 700;
+    answerCss: `.btn {
+  font-size: 18px;
+  font-weight: 800;
   border-radius: 12px;
-  padding: 10px 14px;
+  padding: 12px 18px;
   border: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+  display: inline-block;
+  margin-right: 12px;
+  margin-bottom: 12px;
   user-select: none;
 }
 
-.btn.primary { background: #2563eb; color: #fff; }
-.btn.ghost { background: transparent; color: #0f172a; border: 1px solid #cbd5e1; }
-.btn.danger { background: #ef4444; color: #fff; }`
+.btn.primary { background: #1d4ed8; color: #fff; }
+.btn.ghost { color: #7c3aed; border: 3px solid #7c3aed; }
+.btn.danger { background: #dc2626; color: #fff; }`
   },
   {
     qid: 'U2',
@@ -206,109 +164,74 @@ window.CSS_QUESTIONS = [
     title: 'バッジ',
     difficulty: '初級',
     stageClass: 'stage stage--light',
-    hint: '使うプロパティ: background / color / border-radius / padding / font-size / font-weight',
-    stageHtml: `<div class="badgeRow">
+    hint: '目標: 情報の種類ごとにバッジの見た目を変える（レイアウト指定は不要）。使うプロパティ: background / color / border-radius / padding / font-size / font-weight / margin',
+    stageHtml: `<div class="badge-row">
   <span class="badge ok">OK</span>
   <span class="badge info">INFO</span>
   <span class="badge ng">NG</span>
 </div>`,
-    answerHtml: `<div class="badgeRow">
+    answerHtml: `<div class="badge-row">
   <span class="badge ok">OK</span>
   <span class="badge info">INFO</span>
   <span class="badge ng">NG</span>
 </div>`,
-    answerCss: `.badgeRow {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.badge {
-  font-size: 12px;
-  font-weight: 700;
+    answerCss: `.badge {
+  font-size: 16px;
+  font-weight: 900;
   border-radius: 999px;
-  padding: 6px 10px;
+  padding: 8px 14px;
   display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
-.badge.ok { background: #dcfce7; color: #166534; }
-.badge.info { background: #dbeafe; color: #1d4ed8; }
-.badge.ng { background: #fee2e2; color: #b91c1c; }`
+.badge.ok { background: #16a34a; color: #fff; }
+.badge.info { background: #2563eb; color: #fff; }
+.badge.ng { background: #dc2626; color: #fff; }`
   },
   {
     qid: 'U3',
     path: 'questions/u3.html',
     category: 'UIパーツ',
     title: '入力（通常/フォーカス）',
-    difficulty: '中級',
+    difficulty: '初級',
     stageClass: 'stage stage--light',
-    hint: '使うプロパティ: border / border-radius / padding / display:flex / align-items / justify-content / box-shadow',
-    stageHtml: `<div class="inputWrap">
-  <div class="fieldLabel">メール</div>
-  <div class="field">
-    <span class="ph">name@example.com</span>
-    <span class="kbd">⌘K</span>
-  </div>
-  <div class="fieldLabel">メール（フォーカス）</div>
-  <div class="field focus">
-    <span class="ph">name@example.com</span>
-    <span class="kbd">⌘K</span>
-  </div>
+    hint: '目標: 通常状態とフォーカス状態の差を作る。使うプロパティ: border / border-radius / padding / color / background / box-shadow',
+    stageHtml: `<div class="input-basic">
+  <div class="field-label">メール</div>
+  <input class="mail-input" type="text" value="name@example.com" readonly />
+  <div class="field-label">メール（フォーカス）</div>
+  <input class="mail-input is-focus" type="text" value="name@example.com" readonly />
 </div>`,
-    answerHtml: `<div class="inputWrap">
-  <div class="fieldLabel">メール</div>
-  <div class="field">
-    <span class="ph">name@example.com</span>
-    <span class="kbd">⌘K</span>
-  </div>
-  <div class="fieldLabel">メール（フォーカス）</div>
-  <div class="field focus">
-    <span class="ph">name@example.com</span>
-    <span class="kbd">⌘K</span>
-  </div>
+    answerHtml: `<div class="input-basic">
+  <div class="field-label">メール</div>
+  <input class="mail-input" type="text" value="name@example.com" readonly />
+  <div class="field-label">メール（フォーカス）</div>
+  <input class="mail-input is-focus" type="text" value="name@example.com" readonly />
 </div>`,
-    answerCss: `.inputWrap {
-  width: min(720px, 100%);
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-}
-
-.fieldLabel {
+    answerCss: `.field-label {
   font-size: 12px;
   font-weight: 800;
   color: #0f172a;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  margin: 0 0 6px 0;
 }
 
-.field {
-  height: 44px;
+.mail-input {
+  width: 100%;
+  height: 50px;
   border-radius: 12px;
-  border: 1px solid #cbd5e1;
+  border: 2px solid #9ca3af;
   padding: 0 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: #0f172a;
-  background: #fff;
+  color: #111827;
+  margin: 0 0 12px 0;
+  font-size: 18px;
 }
 
-.field .ph { color: #64748b; }
-
-.field .kbd {
-  font-size: 11px;
-  font-weight: 800;
-  color: #334155;
-  border: 1px solid #cbd5e1;
-  padding: 4px 8px;
-  border-radius: 999px;
-  background: #f8fafc;
-}
-
-.field.focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.20);
+.mail-input.is-focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 6px rgba(124, 58, 237, 0.28);
 }`
   },
   {
@@ -318,108 +241,91 @@ window.CSS_QUESTIONS = [
     title: 'カード（枠・角・影）',
     difficulty: '初級',
     stageClass: 'stage stage--light2',
-    hint: '使うプロパティ: border / border-radius / padding / box-shadow / margin / text-decoration',
-    stageHtml: `<div class="cardShadow">
-  <h3>カード表現</h3>
-  <p>枠線・角丸・影・余白を組み合わせて、よくあるカードUIを作ります。</p>
-  <div class="footer">
-    <span class="link">通常リンク</span>
-    <span class="link hover">ホバー中リンク</span>
+    hint: '目標: カードの箱感（枠・角・影・余白）を作る。使うプロパティ: border / border-radius / padding / box-shadow / margin / line-height',
+    stageHtml: `<div class="card-shadow">
+  <h3 class="card-shadow-title">カード表現</h3>
+  <p class="card-shadow-text">枠線・角丸・影・余白を組み合わせて、よくあるカードUIを作ります。</p>
+  <div class="card-shadow-meta">
+    <span>更新: 2026-02-24</span>
   </div>
 </div>`,
-    answerHtml: `<div class="cardShadow">
-  <h3>カード表現</h3>
-  <p>枠線・角丸・影・余白を組み合わせて、よくあるカードUIを作ります。</p>
-  <div class="footer">
-    <span class="link">通常リンク</span>
-    <span class="link hover">ホバー中リンク</span>
+    answerHtml: `<div class="card-shadow">
+  <h3 class="card-shadow-title">カード表現</h3>
+  <p class="card-shadow-text">枠線・角丸・影・余白を組み合わせて、よくあるカードUIを作ります。</p>
+  <div class="card-shadow-meta">
+    <span>更新: 2026-02-24</span>
   </div>
 </div>`,
-    answerCss: `.cardShadow {
-  width: min(680px, 100%);
+    answerCss: `.card-shadow {
   padding: 20px;
   border-radius: 14px;
   border: 1px solid #e5e7eb;
-  background: #fff;
   box-shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
 }
 
-.cardShadow h3 { margin: 0 0 10px 0; font-size: 20px; }
 
-.cardShadow p {
-  margin: 0 0 14px 0;
+.card-shadow-title { margin: 0 0 10px 0; font-size: 20px; }
+
+.card-shadow-text {
   color: #334155;
   line-height: 1.7;
 }
 
-.cardShadow .footer {
+.card-shadow-meta {
   margin-top: 10px;
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.cardShadow .link {
-  color: #2563eb;
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 6px;
-  text-decoration-color: transparent;
-}
-
-.cardShadow .link:hover { text-decoration-color: currentColor; }`
+  color: #64748b;
+  font-size: 12px;
+}`
   },
   {
     qid: 'B2',
     path: 'questions/b2.html',
     category: '余白 / ボックス',
-    title: '設定画面（行区切り＋余白）',
+    title: '設定画面（行区切り）',
     difficulty: '初級',
     stageClass: 'stage stage--light',
-    hint: '使うプロパティ: padding / border-bottom / display:flex / justify-content:space-between / :last-child',
-    stageHtml: `<div class="settingsCard">
-  <div class="settingsCard__header">アカウント設定</div>
-  <div class="settingsCard__body">
-    <div class="settingsCard__row">
-      <span class="settingsCard__label">ユーザー名</span>
-      <span class="settingsCard__value">taro_yamada</span>
+    hint: '目標: 各行を区切って情報を読みやすくする。使うプロパティ: padding / border-bottom / :last-child / font-size / color',
+    stageHtml: `<div class="settings-list">
+  <div class="settings-card__header">アカウント設定</div>
+  <div class="settings-card__body">
+    <div class="settings-card__row">
+      <span class="settings-card__label">ユーザー名</span><br />
+      <span class="settings-card__value">taro_yamada</span>
     </div>
-    <div class="settingsCard__row">
-      <span class="settingsCard__label">メールアドレス</span>
-      <span class="settingsCard__value">taro@example.com</span>
+    <div class="settings-card__row">
+      <span class="settings-card__label">メールアドレス</span><br />
+      <span class="settings-card__value">taro@example.com</span>
     </div>
-    <div class="settingsCard__row">
-      <span class="settingsCard__label">言語</span>
-      <span class="settingsCard__value">日本語</span>
-    </div>
-  </div>
-</div>`,
-    answerHtml: `<div class="settingsCard">
-  <div class="settingsCard__header">アカウント設定</div>
-  <div class="settingsCard__body">
-    <div class="settingsCard__row">
-      <span class="settingsCard__label">ユーザー名</span>
-      <span class="settingsCard__value">taro_yamada</span>
-    </div>
-    <div class="settingsCard__row">
-      <span class="settingsCard__label">メールアドレス</span>
-      <span class="settingsCard__value">taro@example.com</span>
-    </div>
-    <div class="settingsCard__row">
-      <span class="settingsCard__label">言語</span>
-      <span class="settingsCard__value">日本語</span>
+    <div class="settings-card__row">
+      <span class="settings-card__label">言語</span><br />
+      <span class="settings-card__value">日本語</span>
     </div>
   </div>
 </div>`,
-    answerCss: `.settingsCard {
-  width: min(720px, 100%);
-  background: #fff;
+    answerHtml: `<div class="settings-list">
+  <div class="settings-card__header">アカウント設定</div>
+  <div class="settings-card__body">
+    <div class="settings-card__row">
+      <span class="settings-card__label">ユーザー名</span><br />
+      <span class="settings-card__value">taro_yamada</span>
+    </div>
+    <div class="settings-card__row">
+      <span class="settings-card__label">メールアドレス</span><br />
+      <span class="settings-card__value">taro@example.com</span>
+    </div>
+    <div class="settings-card__row">
+      <span class="settings-card__label">言語</span><br />
+      <span class="settings-card__value">日本語</span>
+    </div>
+  </div>
+</div>`,
+    answerCss: `.settings-list {
   border: 1px solid #e5e7eb;
   border-radius: 14px;
   overflow: hidden;
 }
 
-.settingsCard__header {
+.settings-card__header {
   padding: 16px 20px;
   border-bottom: 1px solid #e5e7eb;
   font-weight: 800;
@@ -427,74 +333,62 @@ window.CSS_QUESTIONS = [
   color: #0f172a;
 }
 
-.settingsCard__row {
+.settings-card__row {
   padding: 14px 20px;
   border-bottom: 1px solid #e5e7eb;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   color: #0f172a;
 }
 
-.settingsCard__row:last-child { border-bottom: none; }
-.settingsCard__label { font-size: 14px; font-weight: 600; }
-.settingsCard__value { font-size: 13px; color: #64748b; }`
+.settings-card__row:last-child { border-bottom: none; }
+.settings-card__label { font-size: 13px; font-weight: 700; }
+.settings-card__value { font-size: 13px; color: #64748b; line-height: 1.8; }`
   },
   {
     qid: 'B3',
     path: 'questions/b3.html',
     category: '余白 / ボックス',
-    title: 'プロフィールカード',
+    title: 'プロフィールカード（縦積み）',
     difficulty: '初級',
     stageClass: 'stage stage--light',
-    hint: '使うプロパティ: display:flex / align-items:center / gap / border-radius:50% / width / height',
-    stageHtml: `<div class="profileCard">
-  <div class="profileCard__avatar">T</div>
-  <div>
-    <p class="profileCard__name">山田太郎</p>
-    <p class="profileCard__role">フロントエンドエンジニア</p>
-  </div>
+    hint: '目標: 縦積みプロフィールカードを整える。使うプロパティ: border / border-radius / padding / width / height / text-align / margin',
+    stageHtml: `<div class="profile-panel">
+  <div class="profile-card__avatar">T</div>
+  <p class="profile-card__name">山田太郎</p>
+  <p class="profile-card__role">フロントエンドエンジニア</p>
 </div>`,
-    answerHtml: `<div class="profileCard">
-  <div class="profileCard__avatar">T</div>
-  <div>
-    <p class="profileCard__name">山田太郎</p>
-    <p class="profileCard__role">フロントエンドエンジニア</p>
-  </div>
+    answerHtml: `<div class="profile-panel">
+  <div class="profile-card__avatar">T</div>
+  <p class="profile-card__name">山田太郎</p>
+  <p class="profile-card__role">フロントエンドエンジニア</p>
 </div>`,
-    answerCss: `.profileCard {
-  width: min(500px, 100%);
-  background: #fff;
+    answerCss: `.profile-panel {
   border: 1px solid #e5e7eb;
   border-radius: 14px;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
+  padding: 22px;
+  text-align: center;
 }
 
-.profileCard__avatar {
+.profile-card__avatar {
   width: 56px;
   height: 56px;
+  margin: 0 auto 12px;
   border-radius: 50%;
   background: #e2e8f0;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
+  line-height: 56px;
   font-size: 20px;
   font-weight: 800;
   color: #475569;
 }
 
-.profileCard__name {
+.profile-card__name {
   font-size: 16px;
   font-weight: 700;
   color: #0f172a;
-  margin: 0 0 4px 0;
+  margin: 0 0 6px 0;
 }
 
-.profileCard__role {
+.profile-card__role {
   font-size: 13px;
   color: #64748b;
   margin: 0;
@@ -507,8 +401,8 @@ window.CSS_QUESTIONS = [
     title: '3列＋折り返し',
     difficulty: '中級',
     stageClass: 'stage',
-    hint: '使うプロパティ: display:flex / flex-wrap / gap / flex',
-    stageHtml: `<div class="flexGrid">
+    hint: '目標: 3列で並べ、幅が足りないと折り返す。使うプロパティ: display:flex / flex-wrap / gap / flex',
+    stageHtml: `<div class="flex-grid">
   <div class="box a">A</div>
   <div class="box b">B</div>
   <div class="box c">C</div>
@@ -516,7 +410,7 @@ window.CSS_QUESTIONS = [
   <div class="box e">E</div>
   <div class="box f">F</div>
 </div>`,
-    answerHtml: `<div class="flexGrid">
+    answerHtml: `<div class="flex-grid">
   <div class="box a">A</div>
   <div class="box b">B</div>
   <div class="box c">C</div>
@@ -524,8 +418,7 @@ window.CSS_QUESTIONS = [
   <div class="box e">E</div>
   <div class="box f">F</div>
 </div>`,
-    answerCss: `.flexGrid {
-  width: 100%;
+    answerCss: `.flex-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -556,20 +449,18 @@ window.CSS_QUESTIONS = [
     title: '2カラム（左固定）',
     difficulty: '初級',
     stageClass: 'stage stage--light',
-    hint: '使うプロパティ: display:flex / gap / width / flex:1',
-    stageHtml: `<div class="twoCol">
+    hint: '目標: 左を固定幅、右を可変幅にする。使うプロパティ: display:flex / gap / width / flex:1',
+    stageHtml: `<div class="two-col">
   <div class="side">サイド（240px）</div>
   <div class="main">メイン（可変）</div>
 </div>`,
-    answerHtml: `<div class="twoCol">
+    answerHtml: `<div class="two-col">
   <div class="side">サイド（240px）</div>
   <div class="main">メイン（可変）</div>
 </div>`,
-    answerCss: `.twoCol {
-  width: 100%;
+    answerCss: `.two-col {
   display: flex;
   gap: 16px;
-  align-items: stretch;
 }
 
 .side {
@@ -603,23 +494,22 @@ window.CSS_QUESTIONS = [
     title: 'タイル＋先頭横長',
     difficulty: '中級',
     stageClass: 'stage',
-    hint: '使うプロパティ: display:grid / grid-template-columns / grid-column / gap',
-    stageHtml: `<div class="tileGrid">
+    hint: '目標: 2列グリッドで先頭タイルだけ横長にする。使うプロパティ: display:grid / grid-template-columns / grid-column / gap',
+    stageHtml: `<div class="tile-grid">
   <div class="tile hero">A</div>
   <div class="tile b">B</div>
   <div class="tile c">C</div>
   <div class="tile d">D</div>
   <div class="tile e">E</div>
 </div>`,
-    answerHtml: `<div class="tileGrid">
+    answerHtml: `<div class="tile-grid">
   <div class="tile hero">A</div>
   <div class="tile b">B</div>
   <div class="tile c">C</div>
   <div class="tile d">D</div>
   <div class="tile e">E</div>
 </div>`,
-    answerCss: `.tileGrid {
-  width: 100%;
+    answerCss: `.tile-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
@@ -649,78 +539,45 @@ window.CSS_QUESTIONS = [
     qid: 'P1',
     path: 'questions/p1.html',
     category: '位置',
-    title: '上に残るヘッダー（見本）',
+    title: 'stickyヘッダー',
     difficulty: '中級',
     stageClass: 'stage stage--light2',
-    hint: '使うプロパティ: position:sticky / top / border-bottom / display:flex / justify-content',
-    stageHtml: `<div class="stickyMock">
-  <div class="bar">
-    <div class="logo">ヘッダー</div>
-    <div class="links">
-      <a href="#">概要</a>
-      <a class="hover" href="#">料金</a>
-      <a href="#">FAQ</a>
-    </div>
-  </div>
-  <div class="body">スクロール領域の見本</div>
-  <div class="fakeScroll"></div>
+    hint: '目標: スクロールしてもヘッダーが上に残る状態を作る。使うプロパティ: position:sticky / top / height / overflow-y / border-bottom',
+    stageHtml: `<div class="sticky-simple">
+  <div class="sticky-simple__bar">ヘッダー（常に上に残る）</div>
+  <div class="sticky-simple__body">スクロールするとヘッダーだけが上に残ります。</div>
+  <div class="sticky-simple__space"></div>
 </div>`,
-    answerHtml: `<div class="stickyMock">
-  <div class="bar">
-    <div class="logo">ヘッダー</div>
-    <div class="links">
-      <a href="#">概要</a>
-      <a href="#">料金</a>
-      <a href="#">FAQ</a>
-    </div>
-  </div>
-  <div class="body">スクロール領域の見本</div>
-  <div class="fakeScroll"></div>
+    answerHtml: `<div class="sticky-simple">
+  <div class="sticky-simple__bar">ヘッダー（常に上に残る）</div>
+  <div class="sticky-simple__body">スクロールするとヘッダーだけが上に残ります。</div>
+  <div class="sticky-simple__space"></div>
 </div>`,
-    answerCss: `.stickyMock {
-  width: 100%;
+    answerCss: `.sticky-simple {
+  height: 180px;
   border-radius: 14px;
   border: 1px solid rgba(2, 6, 23, 0.10);
-  overflow: hidden;
-  background: #fff;
+  overflow-y: auto;
   color: #0f172a;
 }
 
-.stickyMock .bar {
-  background: #fff;
+.sticky-simple__bar {
   border-bottom: 1px solid #e5e7eb;
   padding: 14px 18px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  font-weight: 800;
   position: sticky;
   top: 0;
 }
 
-.stickyMock .logo { font-weight: 800; }
-.stickyMock .links { display: flex; gap: 14px; }
-
-.stickyMock .links a {
-  color: #334155;
-  text-decoration: none;
-  padding: 6px 8px;
-}
-
-.stickyMock .links a:hover {
-  text-decoration: underline;
-  text-underline-offset: 6px;
-}
-
-.stickyMock .body {
+.sticky-simple__body {
   padding: 16px 18px;
   color: #334155;
-  font-size: 12px;
+  font-size: 13px;
 }
 
-.stickyMock .fakeScroll {
-  height: 70px;
-  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 60%);
-  border-top: 1px dashed rgba(2, 6, 23, 0.10);
+.sticky-simple__space {
+  height: 180px;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 70%);
 }`
   },
   {
@@ -730,27 +587,25 @@ window.CSS_QUESTIONS = [
     title: '右下固定の通知',
     difficulty: '中級',
     stageClass: 'stage stage--light2',
-    hint: '使うプロパティ: position:relative / position:absolute / right / bottom / box-shadow',
-    stageHtml: `<div class="toastMock">
-  <div class="content">右下に固定されたメッセージの見本。</div>
+    hint: '目標: 親要素の右下に通知を固定配置する。使うプロパティ: position:relative / position:absolute / right / bottom / box-shadow',
+    stageHtml: `<div class="toast-mock">
+  <div class="toast-mock-content">右下に固定されたメッセージの見本。</div>
   <div class="toast">保存しました</div>
 </div>`,
-    answerHtml: `<div class="toastMock">
-  <div class="content">右下に固定されたメッセージの見本。</div>
+    answerHtml: `<div class="toast-mock">
+  <div class="toast-mock-content">右下に固定されたメッセージの見本。</div>
   <div class="toast">保存しました</div>
 </div>`,
-    answerCss: `.toastMock {
-  width: 100%;
+    answerCss: `.toast-mock {
   height: 220px;
   border-radius: 14px;
   border: 1px solid rgba(2, 6, 23, 0.10);
-  background: #fff;
   position: relative;
   overflow: hidden;
   color: #0f172a;
 }
 
-.toastMock .content {
+.toast-mock-content {
   padding: 16px;
   color: #334155;
   font-size: 12px;
@@ -777,45 +632,43 @@ window.CSS_QUESTIONS = [
     title: '中央オーバーレイ（確認ダイアログ）',
     difficulty: '中級',
     stageClass: 'stage stage--light2',
-    hint: '使うプロパティ: position:relative / position:absolute / inset:0 / display:flex / align-items:center / justify-content:center',
-    stageHtml: `<div class="overlayMock">
-  <div class="overlayMock__bg">背景コンテンツがここに表示されています。</div>
-  <div class="overlayMock__overlay">
-    <div class="overlayMock__dialog">
-      <h4>本当に削除しますか？</h4>
-      <p>この操作は取り消せません。</p>
-      <button class="confirmBtn">削除する</button>
+    hint: '目標: 画面全体オーバーレイの中央にダイアログを置く。使うプロパティ: position:relative / position:absolute / inset:0 / display:flex / align-items:center / justify-content:center',
+    stageHtml: `<div class="overlay-mock">
+  <div class="overlay-mock__bg">背景コンテンツがここに表示されています。</div>
+  <div class="overlay-mock__overlay">
+    <div class="overlay-mock__dialog">
+      <h4 class="overlay-mock-title">本当に削除しますか？</h4>
+      <p class="overlay-mock-text">この操作は取り消せません。</p>
+      <button class="confirm-btn">削除する</button>
     </div>
   </div>
 </div>`,
-    answerHtml: `<div class="overlayMock">
-  <div class="overlayMock__bg">背景コンテンツがここに表示されています。</div>
-  <div class="overlayMock__overlay">
-    <div class="overlayMock__dialog">
-      <h4>本当に削除しますか？</h4>
-      <p>この操作は取り消せません。</p>
-      <button class="confirmBtn">削除する</button>
+    answerHtml: `<div class="overlay-mock">
+  <div class="overlay-mock__bg">背景コンテンツがここに表示されています。</div>
+  <div class="overlay-mock__overlay">
+    <div class="overlay-mock__dialog">
+      <h4 class="overlay-mock-title">本当に削除しますか？</h4>
+      <p class="overlay-mock-text">この操作は取り消せません。</p>
+      <button class="confirm-btn">削除する</button>
     </div>
   </div>
 </div>`,
-    answerCss: `.overlayMock {
-  width: 100%;
+    answerCss: `.overlay-mock {
   height: 240px;
   border-radius: 14px;
   border: 1px solid rgba(2, 6, 23, 0.10);
-  background: #fff;
   position: relative;
   overflow: hidden;
   color: #0f172a;
 }
 
-.overlayMock__bg {
+.overlay-mock__bg {
   padding: 16px;
   color: #334155;
   font-size: 12px;
 }
 
-.overlayMock__overlay {
+.overlay-mock__overlay {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
@@ -824,29 +677,27 @@ window.CSS_QUESTIONS = [
   justify-content: center;
 }
 
-.overlayMock__dialog {
+.overlay-mock__dialog {
   background: #fff;
   border-radius: 14px;
   padding: 20px 24px;
   box-shadow: 0 10px 30px rgba(2, 6, 23, 0.25);
   text-align: center;
   max-width: 260px;
-  width: 100%;
 }
 
-.overlayMock__dialog h4 {
+.overlay-mock-title {
   margin: 0 0 8px 0;
   font-size: 16px;
   color: #0f172a;
 }
 
-.overlayMock__dialog p {
-  margin: 0 0 14px 0;
+.overlay-mock-text {
   font-size: 13px;
   color: #64748b;
 }
 
-.confirmBtn {
+.confirm-btn {
   background: #2563eb;
   color: #fff;
   border: none;
@@ -863,38 +714,38 @@ window.CSS_QUESTIONS = [
     title: '2列 → 1列（見本）',
     difficulty: '中級',
     stageClass: 'stage stage--light',
-    hint: '使うプロパティ: display:grid / grid-template-columns / @media',
+    hint: '目標: 画面幅600px以下で2列から1列に切り替える。使うプロパティ: display:grid / grid-template-columns / @media',
     stageHtml: `<div class="screens">
   <div class="screen">
     <div class="cap">wide</div>
     <div class="area">
-      <div class="rCardsWide">
-        <div class="rCard a">左</div>
-        <div class="rCard b">右</div>
+      <div class="r-cards-wide">
+        <div class="r-card a">左</div>
+        <div class="r-card b">右</div>
       </div>
     </div>
   </div>
   <div class="screen">
     <div class="cap">narrow</div>
     <div class="area">
-      <div class="rCardsNarrow">
-        <div class="rCard a">左</div>
-        <div class="rCard b">右</div>
+      <div class="r-cards-narrow">
+        <div class="r-card a">左</div>
+        <div class="r-card b">右</div>
       </div>
     </div>
   </div>
 </div>`,
-    answerHtml: `<div class="rCards">
-  <div class="rCard a">左</div>
-  <div class="rCard b">右</div>
+    answerHtml: `<div class="r-cards">
+  <div class="r-card a">左</div>
+  <div class="r-card b">右</div>
 </div>`,
-    answerCss: `.rCards {
+    answerCss: `.r-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
 
-.rCard {
+.r-card {
   height: 100px;
   border-radius: 14px;
   display: flex;
@@ -904,11 +755,11 @@ window.CSS_QUESTIONS = [
   color: #0b1220;
 }
 
-.rCard.a { background: #60a5fa; }
-.rCard.b { background: #34d399; }
+.r-card.a { background: #60a5fa; }
+.r-card.b { background: #34d399; }
 
 @media (max-width: 600px) {
-  .rCards {
+  .r-cards {
     grid-template-columns: 1fr;
   }
 }`
@@ -920,53 +771,52 @@ window.CSS_QUESTIONS = [
     title: '横並び → 縦並び（見本）',
     difficulty: '中級',
     stageClass: 'stage stage--light',
-    hint: '使うプロパティ: display:flex / flex-direction / gap / @media',
+    hint: '目標: 画面幅600px以下で横並びを縦並びに切り替える。使うプロパティ: display:flex / flex-direction / gap / @media',
     stageHtml: `<div class="screens">
   <div class="screen">
     <div class="cap">wide</div>
     <div class="area">
-      <div class="rNavWide">
-        <a class="rLink" href="#">ホーム</a>
-        <a class="rLink hover" href="#">ドキュメント</a>
-        <a class="rLink" href="#">概要</a>
+      <div class="r-nav-wide">
+        <a class="r-link" href="#">ホーム</a>
+        <a class="r-link hover" href="#">ドキュメント</a>
+        <a class="r-link" href="#">概要</a>
       </div>
     </div>
   </div>
   <div class="screen">
     <div class="cap">narrow</div>
     <div class="area">
-      <div class="rNavNarrow">
-        <a class="rLink" href="#">ホーム</a>
-        <a class="rLink hover" href="#">ドキュメント</a>
-        <a class="rLink" href="#">概要</a>
+      <div class="r-nav-narrow">
+        <a class="r-link" href="#">ホーム</a>
+        <a class="r-link hover" href="#">ドキュメント</a>
+        <a class="r-link" href="#">概要</a>
       </div>
     </div>
   </div>
 </div>`,
-    answerHtml: `<nav class="rNav">
-  <a class="rLink" href="#">ホーム</a>
-  <a class="rLink" href="#">ドキュメント</a>
-  <a class="rLink" href="#">概要</a>
+    answerHtml: `<nav class="r-nav">
+  <a class="r-link" href="#">ホーム</a>
+  <a class="r-link" href="#">ドキュメント</a>
+  <a class="r-link" href="#">概要</a>
 </nav>`,
-    answerCss: `.rNav {
+    answerCss: `.r-nav {
   display: flex;
   gap: 14px;
 }
 
-.rLink {
+.r-link {
   padding: 8px 10px;
   border-radius: 10px;
   text-decoration: none;
   color: #0f172a;
   font-weight: 700;
-  background: transparent;
   border: 1px solid rgba(2, 6, 23, 0.10);
 }
 
-.rLink:hover { background: #f1f5f9; }
+.r-link:hover { background: #f1f5f9; }
 
 @media (max-width: 600px) {
-  .rNav {
+  .r-nav {
     flex-direction: column;
     gap: 10px;
   }
@@ -979,23 +829,23 @@ window.CSS_QUESTIONS = [
     title: 'ボタン（before/after）',
     difficulty: '中級',
     stageClass: 'stage stage--light',
-    hint: '使うプロパティ: transition / transform:scale() / background / :hover',
-    stageHtml: `<div class="animPair">
-  <div class="animState">
+    hint: '目標: ホバー時に色と大きさがなめらかに変化する。使うプロパティ: transition / transform:scale() / background / :hover',
+    stageHtml: `<div class="anim-pair">
+  <div class="anim-state">
     <div class="cap">before</div>
     <div class="body">
-      <button class="animBtn">ホバー</button>
+      <button class="anim-btn">ホバー</button>
     </div>
   </div>
-  <div class="animState">
+  <div class="anim-state">
     <div class="cap">after</div>
     <div class="body">
-      <button class="animBtn after">ホバー</button>
+      <button class="anim-btn after">ホバー</button>
     </div>
   </div>
 </div>`,
-    answerHtml: `<button class="animBtn">ホバー</button>`,
-    answerCss: `.animBtn {
+    answerHtml: `<button class="anim-btn">ホバー</button>`,
+    answerCss: `.anim-btn {
   background: #2563eb;
   color: #fff;
   border: none;
@@ -1008,7 +858,7 @@ window.CSS_QUESTIONS = [
   transition: all 0.2s ease;
 }
 
-.animBtn:hover {
+.anim-btn:hover {
   background: #1d4ed8;
   transform: scale(1.03);
 }`
@@ -1020,47 +870,45 @@ window.CSS_QUESTIONS = [
     title: 'カード影（before/after）',
     difficulty: '中級',
     stageClass: 'stage stage--light2',
-    hint: '使うプロパティ: box-shadow / transition / :hover',
-    stageHtml: `<div class="animPair">
-  <div class="animState">
+    hint: '目標: ホバー時にカードの影がなめらかに強くなる。使うプロパティ: box-shadow / transition / :hover',
+    stageHtml: `<div class="anim-pair">
+  <div class="anim-state">
     <div class="cap">before</div>
     <div class="body">
-      <div class="hoverCard">
-        <h4>ホバーカード</h4>
-        <p>影が弱い状態</p>
+      <div class="hover-card">
+        <h4 class="hover-card-title">ホバーカード</h4>
+        <p class="hover-card-text">影が弱い状態</p>
       </div>
     </div>
   </div>
-  <div class="animState">
+  <div class="anim-state">
     <div class="cap">after</div>
     <div class="body">
-      <div class="hoverCard after">
-        <h4>ホバーカード</h4>
-        <p>影が強い状態</p>
+      <div class="hover-card after">
+        <h4 class="hover-card-title">ホバーカード</h4>
+        <p class="hover-card-text">影が強い状態</p>
       </div>
     </div>
   </div>
 </div>`,
-    answerHtml: `<div class="hoverCard">
-  <h4>ホバーカード</h4>
-  <p>影が変化するカード</p>
+    answerHtml: `<div class="hover-card">
+  <h4 class="hover-card-title">ホバーカード</h4>
+  <p class="hover-card-text">影が変化するカード</p>
 </div>`,
-    answerCss: `.hoverCard {
+    answerCss: `.hover-card {
   max-width: 520px;
-  width: 100%;
   border-radius: 14px;
   border: 1px solid #e5e7eb;
   padding: 18px;
-  background: #fff;
   box-shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
   transition: box-shadow 0.2s ease;
 }
 
-.hoverCard:hover {
+.hover-card:hover {
   box-shadow: 0 16px 40px rgba(2, 6, 23, 0.16);
 }
 
-.hoverCard h4 { margin: 0 0 8px 0; }
-.hoverCard p { margin: 0; color: #334155; }`
+.hover-card-title { margin: 0 0 8px 0; }
+.hover-card-text { margin: 0; color: #334155; }`
   }
 ];

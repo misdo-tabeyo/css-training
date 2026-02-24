@@ -140,6 +140,64 @@
       padding: 4px 8px;
       border-radius: 999px;
     }
+    .difficulty{
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 999px;
+    }
+    .difficulty--beginner{
+      background: rgba(52,211,153,.15);
+      color: #34d399;
+      border: 1px solid rgba(52,211,153,.3);
+    }
+    .difficulty--intermediate{
+      background: rgba(251,191,36,.15);
+      color: #fbbf24;
+      border: 1px solid rgba(251,191,36,.3);
+    }
+
+    /* Hint */
+    .hint-toggle{
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      cursor: pointer;
+      transition: all .15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .hint-toggle:hover{
+      background: rgba(255,255,255,.12);
+      color: var(--ink);
+    }
+    .hint-content{
+      display: none;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 14px;
+    }
+    .hint-content.open{
+      display: block;
+    }
+    .hint-content code{
+      background: rgba(255,255,255,.08);
+      border: 1px solid var(--line);
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      color: var(--a);
+    }
 
     /* Visual stage */
     .stage{
@@ -869,6 +927,7 @@
         <article class="question" data-qid="T1">
           <div class="question__bar">
             <div class="qid">T1</div>
+            <span class="difficulty difficulty--beginner">初級</span>
             <div class="chip">見出し＋段落</div>
           </div>
           <div class="stage stage--light">
@@ -877,6 +936,10 @@
               <p class="lead">見出しの強弱・本文の読みやすさ・余白のリズムを揃えます。</p>
               <p class="body">この見た目と同じになるように、CSSだけで再現してください。</p>
             </div>
+          </div>
+          <button class="hint-toggle" onclick="toggleHint(this)">ヒントを見る ▼</button>
+          <div class="hint-content">
+            使うプロパティ: <code>font-size</code> <code>font-weight</code> <code>margin</code> <code>line-height</code> <code>color</code> <code>border</code> <code>border-radius</code> <code>padding</code>
           </div>
           <div class="question__actions">
             <button class="action-btn copy-html-btn" onclick="copyHtml('T1')">HTMLをコピー</button>
@@ -887,6 +950,7 @@
         <article class="question" data-qid="T2">
           <div class="question__bar">
             <div class="qid">T2</div>
+            <span class="difficulty difficulty--beginner">初級</span>
             <div class="chip">リンク（通常/現在地/ホバー）</div>
           </div>
           <div class="stage stage--light">
@@ -899,6 +963,11 @@
               </div>
             </div>
           </div>
+          <button class="hint-toggle" onclick="toggleHint(this)">ヒントを見る ▼</button>
+          <div class="hint-content">
+            使うプロパティ: <code>display: flex</code> <code>justify-content</code> <code>text-decoration</code> <code>color</code> <code>font-weight</code><br>
+            ポイント: <code>:hover</code> 擬似クラスでマウスを乗せたときのスタイルを変えます
+          </div>
           <div class="question__actions">
             <button class="action-btn copy-html-btn" onclick="copyHtml('T2')">HTMLをコピー</button>
             <button class="action-btn" onclick="showCss('T2')">解答CSSを見る</button>
@@ -908,6 +977,7 @@
         <article class="question" data-qid="T3">
           <div class="question__bar">
             <div class="qid">T3</div>
+            <span class="difficulty difficulty--beginner">初級</span>
             <div class="chip">リスト行（区切り＋ホバー）</div>
           </div>
           <div class="stage stage--light">
@@ -919,6 +989,11 @@
                 <li>区切り線のリズム</li>
               </ul>
             </div>
+          </div>
+          <button class="hint-toggle" onclick="toggleHint(this)">ヒントを見る ▼</button>
+          <div class="hint-content">
+            使うプロパティ: <code>list-style</code> <code>padding</code> <code>border-bottom</code> <code>border-radius</code> <code>background</code><br>
+            ポイント: <code>:hover</code> で行の背景色を変え、<code>border-bottom-color: transparent</code> で区切り線を消します
           </div>
           <div class="question__actions">
             <button class="action-btn copy-html-btn" onclick="copyHtml('T3')">HTMLをコピー</button>
@@ -939,6 +1014,7 @@
         <article class="question" data-qid="U1">
           <div class="question__bar">
             <div class="qid">U1</div>
+            <span class="difficulty difficulty--beginner">初級</span>
             <div class="chip">ボタン3種</div>
           </div>
           <div class="stage stage--light">
@@ -947,6 +1023,11 @@
               <div class="btn ghost">ゴースト</div>
               <div class="btn danger">危険</div>
             </div>
+          </div>
+          <button class="hint-toggle" onclick="toggleHint(this)">ヒントを見る ▼</button>
+          <div class="hint-content">
+            使うプロパティ: <code>background</code> <code>color</code> <code>border</code> <code>border-radius</code> <code>padding</code> <code>font-weight</code><br>
+            ポイント: ゴーストボタンは背景を透明にして枠線だけにします
           </div>
           <div class="question__actions">
             <button class="action-btn copy-html-btn" onclick="copyHtml('U1')">HTMLをコピー</button>
@@ -957,6 +1038,7 @@
         <article class="question" data-qid="U2">
           <div class="question__bar">
             <div class="qid">U2</div>
+            <span class="difficulty difficulty--beginner">初級</span>
             <div class="chip">バッジ</div>
           </div>
           <div class="stage stage--light">
@@ -965,6 +1047,11 @@
               <span class="badge info">INFO</span>
               <span class="badge ng">NG</span>
             </div>
+          </div>
+          <button class="hint-toggle" onclick="toggleHint(this)">ヒントを見る ▼</button>
+          <div class="hint-content">
+            使うプロパティ: <code>background</code> <code>color</code> <code>border-radius</code> <code>padding</code> <code>font-size</code> <code>font-weight</code><br>
+            ポイント: <code>border-radius: 999px</code> で完全な丸角（ピル型）になります
           </div>
           <div class="question__actions">
             <button class="action-btn copy-html-btn" onclick="copyHtml('U2')">HTMLをコピー</button>
@@ -975,6 +1062,7 @@
         <article class="question" data-qid="U3">
           <div class="question__bar">
             <div class="qid">U3</div>
+            <span class="difficulty difficulty--intermediate">中級</span>
             <div class="chip">入力（通常/フォーカス）</div>
           </div>
           <div class="stage stage--light">
@@ -990,6 +1078,11 @@
                 <span class="kbd">⌘K</span>
               </div>
             </div>
+          </div>
+          <button class="hint-toggle" onclick="toggleHint(this)">ヒントを見る ▼</button>
+          <div class="hint-content">
+            使うプロパティ: <code>border</code> <code>border-radius</code> <code>padding</code> <code>display: flex</code> <code>align-items</code> <code>justify-content</code> <code>box-shadow</code><br>
+            ポイント: フォーカス時は <code>border-color</code> を変え、<code>box-shadow</code> で青い光彩を出します
           </div>
           <div class="question__actions">
             <button class="action-btn copy-html-btn" onclick="copyHtml('U3')">HTMLをコピー</button>
@@ -1010,6 +1103,7 @@
         <article class="question" data-qid="B1">
           <div class="question__bar">
             <div class="qid">B1</div>
+            <span class="difficulty difficulty--beginner">初級</span>
             <div class="chip">カード（枠・角・影）</div>
           </div>
           <div class="stage stage--light2">
@@ -1022,6 +1116,11 @@
               </div>
             </div>
           </div>
+          <button class="hint-toggle" onclick="toggleHint(this)">ヒントを見る ▼</button>
+          <div class="hint-content">
+            使うプロパティ: <code>border</code> <code>border-radius</code> <code>padding</code> <code>box-shadow</code> <code>margin</code> <code>text-decoration</code><br>
+            ポイント: <code>box-shadow</code> でふんわりした影をつけるとカードらしくなります
+          </div>
           <div class="question__actions">
             <button class="action-btn copy-html-btn" onclick="copyHtml('B1')">HTMLをコピー</button>
             <button class="action-btn" onclick="showCss('B1')">解答CSSを見る</button>
@@ -1031,6 +1130,7 @@
         <article class="question" data-qid="B2">
           <div class="question__bar">
             <div class="qid">B2</div>
+            <span class="difficulty difficulty--beginner">初級</span>
             <div class="chip">余白のリズム</div>
           </div>
           <div class="stage stage--light">
@@ -1048,6 +1148,11 @@
                 <span class="value">区切りが均等</span>
               </div>
             </div>
+          </div>
+          <button class="hint-toggle" onclick="toggleHint(this)">ヒントを見る ▼</button>
+          <div class="hint-content">
+            使うプロパティ: <code>display: grid</code> <code>gap</code> <code>padding</code> <code>border</code> <code>border-radius</code><br>
+            ポイント: <code>gap</code> を使うと要素間の余白を均等に揃えられます。<code>display: flex</code> + <code>justify-content: space-between</code> で左右に配置します
           </div>
           <div class="question__actions">
             <button class="action-btn copy-html-btn" onclick="copyHtml('B2')">HTMLをコピー</button>
@@ -1068,6 +1173,7 @@
         <article class="question" data-qid="L1">
           <div class="question__bar">
             <div class="qid">L1</div>
+            <span class="difficulty difficulty--intermediate">中級</span>
             <div class="chip">3列＋折り返し</div>
           </div>
           <div class="stage">
@@ -1080,6 +1186,11 @@
               <div class="box f">F</div>
             </div>
           </div>
+          <button class="hint-toggle" onclick="toggleHint(this)">ヒントを見る ▼</button>
+          <div class="hint-content">
+            使うプロパティ: <code>display: flex</code> <code>flex-wrap</code> <code>gap</code> <code>flex</code><br>
+            ポイント: <code>flex: 0 0 calc(33.333% - 8px)</code> で3列に均等配置し、<code>flex-wrap: wrap</code> で折り返します
+          </div>
           <div class="question__actions">
             <button class="action-btn copy-html-btn" onclick="copyHtml('L1')">HTMLをコピー</button>
             <button class="action-btn" onclick="showCss('L1')">解答CSSを見る</button>
@@ -1089,6 +1200,7 @@
         <article class="question" data-qid="L2">
           <div class="question__bar">
             <div class="qid">L2</div>
+            <span class="difficulty difficulty--beginner">初級</span>
             <div class="chip">2カラム（左固定）</div>
           </div>
           <div class="stage stage--light">
@@ -1096,6 +1208,11 @@
               <div class="side">サイド（240px）</div>
               <div class="main">メイン（可変）</div>
             </div>
+          </div>
+          <button class="hint-toggle" onclick="toggleHint(this)">ヒントを見る ▼</button>
+          <div class="hint-content">
+            使うプロパティ: <code>display: flex</code> <code>gap</code> <code>width</code> <code>flex: 1</code><br>
+            ポイント: サイドを <code>width: 240px</code> に固定し、メインを <code>flex: 1</code> で残りの幅いっぱいに広げます
           </div>
           <div class="question__actions">
             <button class="action-btn copy-html-btn" onclick="copyHtml('L2')">HTMLをコピー</button>
@@ -1106,6 +1223,7 @@
         <article class="question" data-qid="L3">
           <div class="question__bar">
             <div class="qid">L3</div>
+            <span class="difficulty difficulty--intermediate">中級</span>
             <div class="chip">タイル＋先頭横長</div>
           </div>
           <div class="stage">
@@ -1116,6 +1234,11 @@
               <div class="tile d">D</div>
               <div class="tile e">E</div>
             </div>
+          </div>
+          <button class="hint-toggle" onclick="toggleHint(this)">ヒントを見る ▼</button>
+          <div class="hint-content">
+            使うプロパティ: <code>display: grid</code> <code>grid-template-columns</code> <code>grid-column</code> <code>gap</code><br>
+            ポイント: 先頭の要素を <code>grid-column: 1 / -1</code> で横幅いっぱいに広げます
           </div>
           <div class="question__actions">
             <button class="action-btn copy-html-btn" onclick="copyHtml('L3')">HTMLをコピー</button>
@@ -1136,6 +1259,7 @@
         <article class="question" data-qid="P1">
           <div class="question__bar">
             <div class="qid">P1</div>
+            <span class="difficulty difficulty--intermediate">中級</span>
             <div class="chip">上に残るヘッダー（見本）</div>
           </div>
           <div class="stage stage--light2">
@@ -1152,6 +1276,11 @@
               <div class="fakeScroll"></div>
             </div>
           </div>
+          <button class="hint-toggle" onclick="toggleHint(this)">ヒントを見る ▼</button>
+          <div class="hint-content">
+            使うプロパティ: <code>position: sticky</code> <code>top</code> <code>border-bottom</code> <code>display: flex</code> <code>justify-content</code><br>
+            ポイント: <code>position: sticky; top: 0</code> でスクロールしても上部に固定されるヘッダーを作ります
+          </div>
           <div class="question__actions">
             <button class="action-btn copy-html-btn" onclick="copyHtml('P1')">HTMLをコピー</button>
             <button class="action-btn" onclick="showCss('P1')">解答CSSを見る</button>
@@ -1161,6 +1290,7 @@
         <article class="question" data-qid="P2">
           <div class="question__bar">
             <div class="qid">P2</div>
+            <span class="difficulty difficulty--intermediate">中級</span>
             <div class="chip">右下固定の通知</div>
           </div>
           <div class="stage stage--light2">
@@ -1168,6 +1298,11 @@
               <div class="content">右下に固定されたメッセージの見本。</div>
               <div class="toast">保存しました</div>
             </div>
+          </div>
+          <button class="hint-toggle" onclick="toggleHint(this)">ヒントを見る ▼</button>
+          <div class="hint-content">
+            使うプロパティ: <code>position: relative</code> <code>position: absolute</code> <code>right</code> <code>bottom</code> <code>box-shadow</code><br>
+            ポイント: 親要素を <code>position: relative</code> にし、通知を <code>position: absolute</code> + <code>right</code> + <code>bottom</code> で右下に配置します
           </div>
           <div class="question__actions">
             <button class="action-btn copy-html-btn" onclick="copyHtml('P2')">HTMLをコピー</button>
@@ -1188,6 +1323,7 @@
         <article class="question" data-qid="R1">
           <div class="question__bar">
             <div class="qid">R1</div>
+            <span class="difficulty difficulty--intermediate">中級</span>
             <div class="chip">2列 → 1列（見本）</div>
           </div>
           <div class="stage stage--light">
@@ -1212,6 +1348,11 @@
               </div>
             </div>
           </div>
+          <button class="hint-toggle" onclick="toggleHint(this)">ヒントを見る ▼</button>
+          <div class="hint-content">
+            使うプロパティ: <code>display: grid</code> <code>grid-template-columns</code> <code>@media</code><br>
+            ポイント: <code>@media (max-width: 600px)</code> で画面幅が狭い時に <code>grid-template-columns: 1fr</code> に切り替えます
+          </div>
           <div class="question__actions">
             <button class="action-btn copy-html-btn" onclick="copyHtml('R1')">HTMLをコピー</button>
             <button class="action-btn" onclick="showCss('R1')">解答CSSを見る</button>
@@ -1221,6 +1362,7 @@
         <article class="question" data-qid="R2">
           <div class="question__bar">
             <div class="qid">R2</div>
+            <span class="difficulty difficulty--intermediate">中級</span>
             <div class="chip">横並び → 縦並び（見本）</div>
           </div>
           <div class="stage stage--light">
@@ -1247,6 +1389,11 @@
               </div>
             </div>
           </div>
+          <button class="hint-toggle" onclick="toggleHint(this)">ヒントを見る ▼</button>
+          <div class="hint-content">
+            使うプロパティ: <code>display: flex</code> <code>flex-direction</code> <code>gap</code> <code>@media</code><br>
+            ポイント: 狭い画面では <code>flex-direction: column</code> で縦並びに切り替えます
+          </div>
           <div class="question__actions">
             <button class="action-btn copy-html-btn" onclick="copyHtml('R2')">HTMLをコピー</button>
             <button class="action-btn" onclick="showCss('R2')">解答CSSを見る</button>
@@ -1266,6 +1413,7 @@
         <article class="question" data-qid="M1">
           <div class="question__bar">
             <div class="qid">M1</div>
+            <span class="difficulty difficulty--intermediate">中級</span>
             <div class="chip">ボタン（before/after）</div>
           </div>
           <div class="stage stage--light">
@@ -1284,6 +1432,11 @@
               </div>
             </div>
           </div>
+          <button class="hint-toggle" onclick="toggleHint(this)">ヒントを見る ▼</button>
+          <div class="hint-content">
+            使うプロパティ: <code>transition</code> <code>transform: scale()</code> <code>background</code> <code>:hover</code><br>
+            ポイント: <code>transition: all 0.2s ease</code> で変化をなめらかにし、<code>:hover</code> で拡大・色変化させます
+          </div>
           <div class="question__actions">
             <button class="action-btn copy-html-btn" onclick="copyHtml('M1')">HTMLをコピー</button>
             <button class="action-btn" onclick="showCss('M1')">解答CSSを見る</button>
@@ -1293,6 +1446,7 @@
         <article class="question" data-qid="M2">
           <div class="question__bar">
             <div class="qid">M2</div>
+            <span class="difficulty difficulty--intermediate">中級</span>
             <div class="chip">カード影（before/after）</div>
           </div>
           <div class="stage stage--light2">
@@ -1316,6 +1470,11 @@
                 </div>
               </div>
             </div>
+          </div>
+          <button class="hint-toggle" onclick="toggleHint(this)">ヒントを見る ▼</button>
+          <div class="hint-content">
+            使うプロパティ: <code>box-shadow</code> <code>transition</code> <code>:hover</code><br>
+            ポイント: <code>transition: box-shadow 0.2s ease</code> で影の変化をなめらかにします。ホバー時に影を濃く大きくします
           </div>
           <div class="question__actions">
             <button class="action-btn copy-html-btn" onclick="copyHtml('M2')">HTMLをコピー</button>
@@ -2025,6 +2184,13 @@
 }`
       }
     };
+
+    // ヒントの開閉
+    function toggleHint(btn) {
+      const content = btn.nextElementSibling;
+      const isOpen = content.classList.toggle('open');
+      btn.textContent = isOpen ? 'ヒントを隠す ▲' : 'ヒントを見る ▼';
+    }
 
     let currentModalCode = '';
 

@@ -439,6 +439,41 @@
       color:#64748b;
     }
 
+    .profileCard{
+      width:min(500px,100%);
+      background:#fff;
+      border:1px solid #e5e7eb;
+      border-radius:14px;
+      padding:20px;
+      display:flex;
+      align-items:center;
+      gap:16px;
+    }
+    .profileCard__avatar{
+      width:56px;
+      height:56px;
+      border-radius:50%;
+      background:#e2e8f0;
+      flex-shrink:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:20px;
+      font-weight:800;
+      color:#475569;
+    }
+    .profileCard__name{
+      font-size:16px;
+      font-weight:700;
+      color:#0f172a;
+      margin:0 0 4px 0;
+    }
+    .profileCard__role{
+      font-size:13px;
+      color:#64748b;
+      margin:0;
+    }
+
     /* --- Layout targets --- */
     .flexGrid{
       width:100%;
@@ -573,6 +608,58 @@
       box-shadow: 0 10px 30px rgba(2,6,23,.25);
       font-weight:700;
       font-size:12px;
+    }
+
+    .overlayMock{
+      width:100%;
+      height:240px;
+      border-radius:14px;
+      border:1px solid rgba(2,6,23,.10);
+      background:#fff;
+      position:relative;
+      overflow:hidden;
+      color:#0f172a;
+    }
+    .overlayMock__bg{
+      padding:16px;
+      color:#334155;
+      font-size:12px;
+    }
+    .overlayMock__overlay{
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,.5);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .overlayMock__dialog{
+      background:#fff;
+      border-radius:14px;
+      padding:20px 24px;
+      box-shadow: 0 10px 30px rgba(2,6,23,.25);
+      text-align:center;
+      max-width:260px;
+      width:100%;
+    }
+    .overlayMock__dialog h4{
+      margin:0 0 8px 0;
+      font-size:16px;
+      color:#0f172a;
+    }
+    .overlayMock__dialog p{
+      margin:0 0 14px 0;
+      font-size:13px;
+      color:#64748b;
+    }
+    .overlayMock__dialog .confirmBtn{
+      background:#2563eb;
+      color:#fff;
+      border:none;
+      border-radius:10px;
+      padding:8px 20px;
+      font-weight:700;
+      font-size:13px;
     }
 
     /* --- Responsive targets (2つの「画面」表現) --- */
@@ -1185,6 +1272,33 @@
             <button class="action-btn" onclick="showCss('B2')">解答CSSを見る</button>
           </div>
         </article>
+
+        <article class="question" data-qid="B3">
+          <div class="question__bar">
+            <div class="qid">B3</div>
+            <span class="difficulty difficulty--beginner">初級</span>
+            <div class="chip">プロフィールカード</div>
+          </div>
+          <div class="stage stage--light">
+            <div class="profileCard">
+              <div class="profileCard__avatar">T</div>
+              <div>
+                <p class="profileCard__name">山田太郎</p>
+                <p class="profileCard__role">フロントエンドエンジニア</p>
+              </div>
+            </div>
+          </div>
+          <button class="hint-toggle" onclick="toggleHint(this)">ヒントを見る ▼</button>
+          <div class="hint-content">
+            使うプロパティ: <code>display: flex</code> <code>align-items: center</code> <code>gap</code> <code>border-radius: 50%</code> <code>width</code> <code>height</code><br>
+            ポイント: アバターを <code>border-radius: 50%</code> で丸くし、<code>flex-shrink: 0</code> で縮まないようにします
+          </div>
+          <div class="question__actions">
+            <button class="action-btn action-btn--codepen" onclick="openInCodePen('B3')">CodePenで開く</button>
+            <button class="action-btn copy-html-btn" onclick="copyHtml('B3')">HTMLをコピー</button>
+            <button class="action-btn" onclick="showCss('B3')">解答CSSを見る</button>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -1338,6 +1452,36 @@
             <button class="action-btn action-btn--codepen" onclick="openInCodePen('P2')">CodePenで開く</button>
             <button class="action-btn copy-html-btn" onclick="copyHtml('P2')">HTMLをコピー</button>
             <button class="action-btn" onclick="showCss('P2')">解答CSSを見る</button>
+          </div>
+        </article>
+
+        <article class="question" data-qid="P3">
+          <div class="question__bar">
+            <div class="qid">P3</div>
+            <span class="difficulty difficulty--intermediate">中級</span>
+            <div class="chip">中央オーバーレイ（確認ダイアログ）</div>
+          </div>
+          <div class="stage stage--light2">
+            <div class="overlayMock">
+              <div class="overlayMock__bg">背景コンテンツがここに表示されています。</div>
+              <div class="overlayMock__overlay">
+                <div class="overlayMock__dialog">
+                  <h4>本当に削除しますか？</h4>
+                  <p>この操作は取り消せません。</p>
+                  <button class="confirmBtn">削除する</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="hint-toggle" onclick="toggleHint(this)">ヒントを見る ▼</button>
+          <div class="hint-content">
+            使うプロパティ: <code>position: relative</code> <code>position: absolute</code> <code>inset: 0</code> <code>display: flex</code> <code>align-items: center</code> <code>justify-content: center</code><br>
+            ポイント: オーバーレイを <code>position: absolute; inset: 0</code> で親全体に広げ、<code>display: flex</code> でダイアログを中央に配置します
+          </div>
+          <div class="question__actions">
+            <button class="action-btn action-btn--codepen" onclick="openInCodePen('P3')">CodePenで開く</button>
+            <button class="action-btn copy-html-btn" onclick="copyHtml('P3')">HTMLをコピー</button>
+            <button class="action-btn" onclick="showCss('P3')">解答CSSを見る</button>
           </div>
         </article>
       </div>
@@ -1897,6 +2041,52 @@
   color: #64748b;
 }`
       },
+      B3: {
+        html: `<div class="profileCard">
+  <div class="profileCard__avatar">T</div>
+  <div>
+    <p class="profileCard__name">山田太郎</p>
+    <p class="profileCard__role">フロントエンドエンジニア</p>
+  </div>
+</div>`,
+        css: `.profileCard {
+  width: min(500px, 100%);
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.profileCard__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 800;
+  color: #475569;
+}
+
+.profileCard__name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+}
+
+.profileCard__role {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
+}`
+      },
       L1: {
         html: `<div class="flexGrid">
   <div class="box a">A</div>
@@ -2101,6 +2291,75 @@
   box-shadow: 0 10px 30px rgba(2, 6, 23, 0.25);
   font-weight: 700;
   font-size: 12px;
+}`
+      },
+      P3: {
+        html: `<div class="overlayMock">
+  <div class="overlayMock__bg">背景コンテンツがここに表示されています。</div>
+  <div class="overlayMock__overlay">
+    <div class="overlayMock__dialog">
+      <h4>本当に削除しますか？</h4>
+      <p>この操作は取り消せません。</p>
+      <button class="confirmBtn">削除する</button>
+    </div>
+  </div>
+</div>`,
+        css: `.overlayMock {
+  width: 100%;
+  height: 240px;
+  border-radius: 14px;
+  border: 1px solid rgba(2, 6, 23, 0.10);
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  color: #0f172a;
+}
+
+.overlayMock__bg {
+  padding: 16px;
+  color: #334155;
+  font-size: 12px;
+}
+
+.overlayMock__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlayMock__dialog {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px 24px;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.25);
+  text-align: center;
+  max-width: 260px;
+  width: 100%;
+}
+
+.overlayMock__dialog h4 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  color: #0f172a;
+}
+
+.overlayMock__dialog p {
+  margin: 0 0 14px 0;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.confirmBtn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 20px;
+  font-weight: 700;
+  font-size: 13px;
 }`
       },
       R1: {

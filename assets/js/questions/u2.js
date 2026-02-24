@@ -5,7 +5,7 @@ window.CSS_QUESTIONS.push({
   title: '入力フィールド',
   difficulty: '初級',
   stageClass: 'stage stage--light',
-  hint: '学ぶこと: display: block / outline / :focus',
+  hint: '学ぶこと: width: 100% / outline / :focus',
   stageHtml: `<div class="u2-form">
   <label class="u2-label">メールアドレス</label>
   <input class="u2-input" type="email" placeholder="example@mail.com" />
@@ -15,7 +15,7 @@ window.CSS_QUESTIONS.push({
   <input class="u2-input" type="email" placeholder="example@mail.com" />
 </div>`,
   answerCss: `.u2-label {
-  display: block;
+  width: 100%;
   margin-bottom: 8px;
   font-size: 14px;
   font-weight: 600;

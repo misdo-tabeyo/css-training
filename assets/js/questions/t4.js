@@ -30,7 +30,7 @@ window.CSS_QUESTIONS.push({
 
 .t4-list {
   padding-left: 20px;
-  line-height: 2;
+  line-height: 2.8;
   color: #555;
   list-style-type: square;
 }`

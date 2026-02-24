@@ -22,7 +22,7 @@ window.CSS_QUESTIONS.push({
 
 .t1-body {
   font-size: 16px;
-  line-height: 1.8;
+  line-height: 2.5;
   color: #555;
 }`
 });

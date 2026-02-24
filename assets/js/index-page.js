@@ -44,9 +44,11 @@
                   (q) => `
                     <article class="question" data-qid="${q.qid}">
                       <div class="question__bar">
-                        <div class="qid">${q.qid}</div>
+                        <div class="qid-title">
+                          <span class="qid">${q.qid}</span>
+                          <span class="qid-name">${q.title}</span>
+                        </div>
                         <span class="difficulty ${difficultyClassMap[q.difficulty] || 'difficulty--beginner'}">${q.difficulty}</span>
-                        <div class="chip">${q.title}</div>
                       </div>
                       <a class="go-link" href="${q.path}">この問題を開く →</a>
                     </article>

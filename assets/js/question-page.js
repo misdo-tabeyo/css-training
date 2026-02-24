@@ -81,9 +81,11 @@
     app.innerHTML = `
       <section class="question question--single" data-qid="${question.qid}">
         <div class="question__bar">
-          <div class="qid">${question.qid}</div>
+          <div class="qid-title">
+            <span class="qid">${question.qid}</span>
+            <span class="qid-name">${question.title}</span>
+          </div>
           <span class="difficulty ${difficultyClass}">${question.difficulty}</span>
-          <div class="chip">${question.title}</div>
         </div>
 
         <div class="${question.stageClass}">

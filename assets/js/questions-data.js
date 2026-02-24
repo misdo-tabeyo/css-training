@@ -169,36 +169,27 @@ window.CSS_QUESTIONS = [
     title: '外側の余白（margin）',
     difficulty: '初級',
     stageClass: 'stage stage--light',
-    hint: '学ぶこと: margin / margin: 0 auto（中央配置）',
-    stageHtml: `<div class="b2-container">
-  <div class="b2-card">
-    <p class="b2-text">margin: 0 autoで横方向の中央に配置できます。</p>
-  </div>
-  <div class="b2-card">
-    <p class="b2-text">2つ目のカードです。上にmarginで余白があります。</p>
-  </div>
+    hint: '学ぶこと: margin-top（要素の外側に余白を作る）',
+    stageHtml: `<div class="b2-wrapper">
+  <div class="b2-box">1つ目のボックス</div>
+  <div class="b2-box b2-box--second">2つ目のボックス</div>
 </div>`,
-    answerHtml: `<div class="b2-container">
-  <div class="b2-card">
-    <p class="b2-text">margin: 0 autoで横方向の中央に配置できます。</p>
-  </div>
-  <div class="b2-card">
-    <p class="b2-text">2つ目のカードです。上にmarginで余白があります。</p>
-  </div>
+    answerHtml: `<div class="b2-wrapper">
+  <div class="b2-box">1つ目のボックス</div>
+  <div class="b2-box b2-box--second">2つ目のボックス</div>
 </div>`,
-    answerCss: `.b2-card {
-  max-width: 400px;
-  margin: 0 auto 16px;
+    answerCss: `.b2-wrapper {
+  width: 100%;
+}
+
+.b2-box {
   padding: 20px;
   background: #e8f4fc;
-}
-
-.b2-card:last-child {
-  margin-bottom: 0;
-}
-
-.b2-text {
   color: #555;
+}
+
+.b2-box--second {
+  margin-top: 16px;
 }`
   },
   {
@@ -278,7 +269,7 @@ window.CSS_QUESTIONS = [
   // 3. UIパーツ (U1-U3)
   // U1: cursor, border: none
   // U2: display: block, outline, :focus
-  // U3: list-style: none, border-bottom, :last-child
+  // U3: list-style: none
   // ========================================
   {
     qid: 'U1',
@@ -343,10 +334,10 @@ window.CSS_QUESTIONS = [
     qid: 'U3',
     path: 'questions/u3.html',
     category: 'UIパーツ',
-    title: '区切り線メニュー',
+    title: '縦並びメニュー',
     difficulty: '初級',
     stageClass: 'stage stage--light',
-    hint: '学ぶこと: list-style: none / border-bottom / :last-child',
+    hint: '学ぶこと: list-style: none（リストの点を消す）',
     stageHtml: `<ul class="u3-menu">
   <li class="u3-item">アカウント設定</li>
   <li class="u3-item">通知設定</li>
@@ -371,11 +362,6 @@ window.CSS_QUESTIONS = [
   padding: 16px;
   font-size: 14px;
   color: #555;
-  border-bottom: 1px solid #ddd;
-}
-
-.u3-item:last-child {
-  border-bottom: none;
 }`
   },
 

@@ -6,11 +6,77 @@
     中級: 'difficulty--intermediate'
   };
 
+  function extractColorCodes(cssText) {
+    if (!cssText) return [];
+    const matches = cssText.match(/#(?:[0-9a-fA-F]{3,8})\b|rgba?\([^\)]+\)/g) || [];
+    const seen = new Set();
+    const colors = [];
+
+    matches.forEach((color) => {
+      const normalized = color.trim();
+      if (seen.has(normalized)) return;
+      seen.add(normalized);
+      colors.push(normalized);
+    });
+
+    return colors;
+  }
+
+  function renderColorGuide(answerCss) {
+    const colors = extractColorCodes(answerCss);
+    if (colors.length === 0) return '';
+
+    return `
+      <div class="color-guide">
+        <div class="color-guide__title">使用カラーコード（クリックでコピー）</div>
+        <div class="color-guide__list">
+          ${colors
+            .map(
+              (color) => `
+                <button type="button" class="color-guide__item" data-color="${color}" aria-label="${color} をコピー">
+                  <span class="color-guide__swatch" style="background:${color}"></span>
+                  <span class="color-guide__code">${color}</span>
+                </button>
+              `
+            )
+            .join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  function bindColorGuideCopy(root) {
+    if (!root) return;
+
+    root.addEventListener('click', async (e) => {
+      const item = e.target.closest('.color-guide__item');
+      if (!item) return;
+
+      const color = item.dataset.color || '';
+      if (!color) return;
+
+      try {
+        await navigator.clipboard.writeText(color);
+        item.classList.add('copied');
+        if (typeof window.showCopyToast === 'function') {
+          window.showCopyToast(`${color} をコピーしました`);
+        }
+
+        setTimeout(() => {
+          item.classList.remove('copied');
+        }, 1200);
+      } catch (_) {
+        // クリップボード未対応時は何もしない
+      }
+    });
+  }
+
   function renderQuestion(question) {
     const app = document.getElementById('app');
     if (!app) return;
 
     const difficultyClass = difficulties[question.difficulty] || 'difficulty--beginner';
+    const colorGuideHtml = renderColorGuide(question.answerCss);
 
     app.innerHTML = `
       <section class="question question--single" data-qid="${question.qid}">
@@ -24,8 +90,12 @@
           ${question.stageHtml}
         </div>
 
+        ${colorGuideHtml}
+
         <button class="hint-toggle" onclick="toggleHint(this)">ヒントを見る ▼</button>
-        <div class="hint-content">${question.hint}</div>
+        <div class="hint-content">
+          <div class="hint-content__text">${question.hint}</div>
+        </div>
 
         <div class="question__actions">
           <button class="action-btn action-btn--codepen" onclick="openInCodePen('answerHtml')">CodePenで開く</button>
@@ -42,6 +112,8 @@
     const answerCss = document.getElementById('answerCss');
     if (answerHtml) answerHtml.value = question.answerHtml;
     if (answerCss) answerCss.value = question.answerCss;
+
+    bindColorGuideCopy(app);
   }
 
   function renderNotFound() {

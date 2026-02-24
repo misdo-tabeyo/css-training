@@ -2,6 +2,7 @@
   'use strict';
 
   let currentModalCode = '';
+  let toastTimer = null;
 
   function getTextFromSource(sourceId) {
     const el = document.getElementById(sourceId);
@@ -68,6 +69,35 @@
     }, 2000);
   }
 
+  function ensureToast() {
+    let toast = document.getElementById('copyToast');
+    if (toast) return toast;
+
+    toast = document.createElement('div');
+    toast.id = 'copyToast';
+    toast.className = 'copy-toast';
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
+    toast.textContent = 'コピーしました';
+    document.body.appendChild(toast);
+    return toast;
+  }
+
+  function showCopyToast(message) {
+    const toast = ensureToast();
+    toast.textContent = message || 'コピーしました';
+    toast.classList.add('show');
+
+    if (toastTimer) {
+      clearTimeout(toastTimer);
+    }
+
+    toastTimer = setTimeout(() => {
+      toast.classList.remove('show');
+      toastTimer = null;
+    }, 1400);
+  }
+
   function toggleHint(btn) {
     const content = btn.nextElementSibling;
     const isOpen = content.classList.toggle('open');
@@ -81,6 +111,7 @@
     try {
       await navigator.clipboard.writeText(text);
       setCopiedState(triggerBtn, defaultLabel || 'コピー');
+      showCopyToast('コピーしました');
     } catch (_) {
       // クリップボード未対応時は何もしない
     }
@@ -141,6 +172,7 @@
       await navigator.clipboard.writeText(currentModalCode);
       const btn = document.getElementById('modalCopyBtn');
       setCopiedState(btn, 'CSSをコピー');
+      showCopyToast('CSSをコピーしました');
     } catch (_) {
       // クリップボード未対応時は何もしない
     }
@@ -150,6 +182,7 @@
   window.copyText = copyText;
   window.openInCodePen = openInCodePen;
   window.showCss = showCss;
+  window.showCopyToast = showCopyToast;
 
   ensureModal();
 })();

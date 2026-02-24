@@ -2062,18 +2062,16 @@
 }`
       },
       R1: {
-        html: `<!-- Wide画面用 -->
-<div class="rCardsWide">
-  <div class="rCard a">左</div>
-  <div class="rCard b">右</div>
-</div>
-
-<!-- Narrow画面用（メディアクエリで切り替え） -->
-<div class="rCardsNarrow">
+        html: `<div class="rCards">
   <div class="rCard a">左</div>
   <div class="rCard b">右</div>
 </div>`,
-        css: `/* 共通 */
+        css: `.rCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
 .rCard {
   height: 100px;
   border-radius: 14px;
@@ -2087,16 +2085,9 @@
 .rCard.a { background: #60a5fa; }
 .rCard.b { background: #34d399; }
 
-/* Wide画面（デフォルト） */
-.rCardsWide {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-/* Narrow画面（例: 600px以下） */
+/* 画面幅が600px以下のとき1列に切り替え */
 @media (max-width: 600px) {
-  .rCardsWide {
+  .rCards {
     grid-template-columns: 1fr;
   }
 }`

@@ -5,7 +5,7 @@ window.CSS_QUESTIONS.push({
   title: '箇条書きリスト',
   difficulty: '初級',
   stageClass: 'stage stage--light',
-  hint: '学ぶこと: list-style-type / padding-left',
+  hint: '学ぶこと: list-style-type',
   stageHtml: `<div class="t4-feature">
   <h2 class="t4-title">サービスの特徴</h2>
   <ul class="t4-list">
@@ -29,7 +29,6 @@ window.CSS_QUESTIONS.push({
 }
 
 .t4-list {
-  padding-left: 20px;
   line-height: 2.8;
   color: #555;
   list-style-type: square;

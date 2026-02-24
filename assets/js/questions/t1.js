@@ -8,11 +8,11 @@ window.CSS_QUESTIONS.push({
   hint: '学ぶこと: font-size / font-weight / color / line-height',
   stageHtml: `<article class="t1-article">
   <h1 class="t1-title">CSSの基本を学ぼう</h1>
-  <p class="t1-body">CSSはWebページの見た目を整えるための言語です。文字の大きさや色、余白などを自由に変更できます。</p>
+  <p class="t1-body">CSSはWebページの見た目を整える言語です。<br>文字の大きさや色、余白を変更できます。<br>この問題ではline-heightで行間を広げます。</p>
 </article>`,
   answerHtml: `<article class="t1-article">
   <h1 class="t1-title">CSSの基本を学ぼう</h1>
-  <p class="t1-body">CSSはWebページの見た目を整えるための言語です。文字の大きさや色、余白などを自由に変更できます。</p>
+  <p class="t1-body">CSSはWebページの見た目を整える言語です。<br>文字の大きさや色、余白を変更できます。<br>この問題ではline-heightで行間を広げます。</p>
 </article>`,
   answerCss: `.t1-title {
   font-size: 28px;

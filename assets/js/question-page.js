@@ -1,6 +1,17 @@
 (function () {
   'use strict';
 
+  // 問題の順序（カテゴリ順）
+  const QUESTION_ORDER = [
+    'T1', 'T2', 'T3', 'T4',
+    'B1', 'B2', 'B3', 'B4', 'B5',
+    'U1', 'U2', 'U3',
+    'L1', 'L2', 'L3', 'L4',
+    'P1', 'P2', 'P3',
+    'R1', 'R2',
+    'M1', 'M2'
+  ];
+
   const difficulties = {
     初級: 'difficulty--beginner',
     中級: 'difficulty--intermediate'
@@ -77,6 +88,7 @@
 
     const difficultyClass = difficulties[question.difficulty] || 'difficulty--beginner';
     const colorGuideHtml = renderColorGuide(question.answerCss);
+    const prevNextNavHtml = renderPrevNextNav(question.qid);
 
     app.innerHTML = `
       <section class="question question--single" data-qid="${question.qid}">
@@ -105,6 +117,8 @@
           <button class="action-btn" onclick="showCss('answerCss', '${question.qid} - 解答CSS')">解答CSSを見る</button>
         </div>
 
+        ${prevNextNavHtml}
+
         <textarea id="answerHtml" class="hidden-source"></textarea>
         <textarea id="answerCss" class="hidden-source"></textarea>
       </section>
@@ -124,6 +138,29 @@
     document.head.appendChild(style);
 
     bindColorGuideCopy(app);
+  }
+
+  function renderPrevNextNav(currentQid) {
+    const index = QUESTION_ORDER.indexOf(currentQid.toUpperCase());
+    if (index === -1) return '';
+
+    const prevQid = index > 0 ? QUESTION_ORDER[index - 1] : null;
+    const nextQid = index < QUESTION_ORDER.length - 1 ? QUESTION_ORDER[index + 1] : null;
+
+    const prevLink = prevQid
+      ? `<a class="prev-next-nav__btn prev-next-nav__btn--prev" href="${prevQid.toLowerCase()}.html">← 前の問題（${prevQid}）</a>`
+      : `<span class="prev-next-nav__btn prev-next-nav__btn--disabled">← 前の問題</span>`;
+
+    const nextLink = nextQid
+      ? `<a class="prev-next-nav__btn prev-next-nav__btn--next" href="${nextQid.toLowerCase()}.html">次の問題（${nextQid}）→</a>`
+      : `<span class="prev-next-nav__btn prev-next-nav__btn--disabled">次の問題 →</span>`;
+
+    return `
+      <nav class="prev-next-nav">
+        ${prevLink}
+        ${nextLink}
+      </nav>
+    `;
   }
 
   function renderNotFound() {
